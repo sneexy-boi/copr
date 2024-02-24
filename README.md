@@ -1,6 +1,6 @@
 # swayland
 
-here lives the spec files for my copr repository which (will soon) hosts many applications, scripts, tools and utilities for (s)way/land based stuff.
+here lives the spec files for my [copr repository](https://copr.fedorainfracloud.org/coprs/sneexy/swayland/) which (will soon) hosts many applications, scripts, tools and utilities for (s)way/land based stuff.
 
 ## there is an issue with your packaging
 
