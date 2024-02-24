@@ -35,7 +35,6 @@ BuildRequires:  systemd
 Requires:       dbus
 Requires:       gtk3
 Requires:       gtk-layer-shell
-Requires:       granite
 %{?systemd_requires}
 
 %description
