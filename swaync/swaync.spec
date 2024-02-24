@@ -17,6 +17,7 @@ Source:         %{forgesource}
 BuildRequires:  meson >= 0.51.0
 BuildRequires:  vala
 BuildRequires:  sassc
+BuildRequires:  granite
 BuildRequires:  scdoc
 BuildRequires:  pkgconfig(gtk+-3.0) >= 3.22
 BuildRequires:  pkgconfig(gtk-layer-shell-0) >= 0.1
