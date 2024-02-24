@@ -49,7 +49,7 @@ A OSD window for common actions like volume and capslock.
 
 
 %build
-%meson
+%meson --buildtype=release
 %meson_build
 
 %install
@@ -62,7 +62,14 @@ A OSD window for common actions like volume and capslock.
 %files
 %license LICENSE
 %doc README.md
-%{_bindir}/*
+%{_bindir}/%{name}
+%{_sysconfdir}/xdg/%{name}/style.css
+%{_prefix}/usr/lib/systemd/system/%{name}-libinput-backend.service
+%{_prefix}/usr/lib/udev/rules.d/99-%{name}.rules
+%{_datadir}/dbus-1/system-services/org.erikreider.%{name}.service
+%{_datadir}/dbus-1/system.d/org.erikreider.%{name}.conf
+%{_datadir}/polkit-1/actions/org.erikreider.%{name}.policy
+%{_datadir}/polkit-1/rules.d/org.erikreider.%{name}.rules
 
 
 %changelog
