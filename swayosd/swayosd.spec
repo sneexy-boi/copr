@@ -14,6 +14,7 @@ Source0:        %{forgesource}
 BuildRequires:  meson
 BuildRequires:  vala
 BuildRequires:  sassc
+BuildRequires:  gtk-layer-shell
 BuildRequires:  g++
 BuildRequires:  cargo
 BuildRequires:  ninja-build
@@ -25,7 +26,6 @@ BuildRequires:  pkgconfig(libpulse)
 
 Requires:       gtk3
 Requires:       gtk-layer-shell
-
 
 Suggests:       swaync
 
