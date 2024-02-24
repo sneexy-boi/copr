@@ -63,7 +63,7 @@ A OSD window for common actions like volume and capslock.
 %license LICENSE
 %doc README.md
 %{_bindir}/%{name}
-%{_sysconfdir}/xdg/%{name}/style.css
+%config(noreplace) %{_sysconfdir}/xdg/%{name}/style.css
 %{_prefix}/usr/lib/systemd/system/%{name}-libinput-backend.service
 %{_prefix}/usr/lib/udev/rules.d/99-%{name}.rules
 %{_datadir}/dbus-1/system-services/org.erikreider.%{name}.service
