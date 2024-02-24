@@ -17,6 +17,7 @@ BuildRequires:  sassc
 BuildRequires:  g++
 BuildRequires:  cargo
 BuildRequires:  ninja-build
+BuildRequires:  rust-gdk0.16+v3_24-devel
 BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  pkgconfig(wayland-client) >= 1.14.91
 BuildRequires:  pkgconfig(libpulse)
