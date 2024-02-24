@@ -1,4 +1,5 @@
 %global   forgeurl https://github.com/ErikReider/SwayOSD/
+%global   branch main
 
 Name:           swayosd
 Version:        main
@@ -12,12 +13,17 @@ Source0:        %{forgesource}
 
 BuildRequires:  meson
 BuildRequires:  vala
+BuildRequires:  sassc
 BuildRequires:  g++
 BuildRequires:  cargo
 BuildRequires:  ninja-build
 BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  pkgconfig(wayland-client) >= 1.14.91
 BuildRequires:  pkgconfig(libpulse)
+
+Requires:       gtk3
+Requires:       gtk-layer-shell
+
 
 Suggests:       swaync
 
