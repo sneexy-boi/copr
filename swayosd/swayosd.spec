@@ -1,6 +1,6 @@
 %global   forgeurl https://github.com/ErikReider/SwayOSD/
 
-Name:           SwayOSD
+Name:           swayosd
 Version:        main
 %forgemeta
 Release:        1%{?dist}
