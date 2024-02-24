@@ -6,6 +6,8 @@ Version:        main
 %forgemeta
 Release:        1%{?dist}
 Summary:        A GTK based on screen display for keyboard shortcuts like caps-lock and volume
+Provides:       swayosd = %{version}-%{release}
+Provides:       SwayOSD = %{version}-%{release}
 
 License:        GPLv3
 URL:            %{forgeurl}
@@ -59,13 +61,21 @@ A OSD window for common actions like volume and capslock.
 %check
 
 
+%post
+%systemd_user_post swayosd-libinput-backend.service
+
+
+%preun
+%systemd_user_preun swayosd-libinput-backend.service
+
+
 %files
 %license LICENSE
 %doc README.md
-%{_bindir}/%{name}
+%{_bindir}/swayosd
 %config(noreplace) %{_sysconfdir}/xdg/%{name}/style.css
-%{_prefix}/usr/lib/systemd/system/%{name}-libinput-backend.service
-%{_prefix}/usr/lib/udev/rules.d/99-%{name}.rules
+%{_prefix}/lib/systemd/system/%{name}-libinput-backend.service
+%{_prefix}/lib/udev/rules.d/99-%{name}.rules
 %{_datadir}/dbus-1/system-services/org.erikreider.%{name}.service
 %{_datadir}/dbus-1/system.d/org.erikreider.%{name}.conf
 %{_datadir}/polkit-1/actions/org.erikreider.%{name}.policy
