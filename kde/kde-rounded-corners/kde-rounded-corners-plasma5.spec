@@ -1,4 +1,4 @@
-%define oname kde-rounded-corners
+%global oname kde-rounded-corners
 
 Name:           kde-rounded-corners-plasma5
 Version:        0.6.1
@@ -36,7 +36,7 @@ BuildRequires:  pkgconfig(epoxy)
 BuildRequires:  pkgconfig(xcb)
 
 Conflicts:      kde-rounded-corners
-Provides:       kde-rounded-corners = %{oname}
+Provides:       kde-rounded-corners = %{version}
 
 %description
 %{summary}.
