@@ -12,7 +12,7 @@ Summary:        Validity fingerprint sensor driver
 
 License:        MIT
 URL:            https://github.com/uunicorn/%{name}
-Source0:        https://github.com/uunicorn/%{name}/archive/refs/heads/master.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/uunicorn/%{name}/archive/refs/heads/master.tar.gz
 # restart python3-validity after resume
 Source1:        python3-validity-restart-after-resume.service
 Patch0:         python-validity-0.12-restart-always.patch
@@ -50,7 +50,7 @@ Validity fingerprint sensor driver.
 
 
 %prep
-%autosetup -n %{name}-%{version} -p1
+%autosetup -n %{name}-master -p1
 
 
 %build
