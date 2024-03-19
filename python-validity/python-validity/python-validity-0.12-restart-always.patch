@@ -1,0 +1,12 @@
+diff -urN python-validity-0.12.orig/debian/python3-validity.service python-validity-0.12/debian/python3-validity.service
+--- python-validity-0.12.orig/debian/python3-validity.service	2021-06-22 17:15:34.895664579 +0300
++++ python-validity-0.12/debian/python3-validity.service	2021-06-22 17:16:18.299093206 +0300
+@@ -5,7 +5,7 @@
+ [Service]
+ Type=simple
+ ExecStart=/usr/lib/python-validity/dbus-service --debug
+-Restart=no
++Restart=always
+ 
+ [Install]
+ WantedBy=multi-user.target

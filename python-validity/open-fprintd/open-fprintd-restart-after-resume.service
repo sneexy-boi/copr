@@ -1,0 +1,10 @@
+[Unit]
+Description=Restart open-fprint after resume
+After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target python3-validity-restart-after-resume.service
+
+[Service]
+Type=simple
+ExecStart=/bin/systemctl --no-block restart open-fprintd.service
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
