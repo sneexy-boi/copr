@@ -1,0 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Daily sync
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Triggers the workflow daily
+  schedule:
+    - cron: "0 0 * * *"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Run Git Configurations
+        run: |
+          git config --local user.name "Not GitHub"
+          git config --local user.email "the-rizzler@gyatt.com"
+
+      - name: Execute version update
+        run: |
+          FLOORP_VER_ORIGINAL=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases | jq -r 'first(.[].tag_name | select(test("^v[0-9]")))')
+          FLOORP_VER=$(echo $FLOORP_VER_ORIGINAL | cut -d 'v' -f 2)
+          sed -i '0,/Version:.*/s//Version:            '$FLOORP_VER'/' floorp.spec
+
+      - name: Push version to Github
+        id: github-push
+        run: |
+          git add .
+          git diff-index --quiet HEAD || git commit -m "chore: Sync Floorp version"
+          git push
+
+      - name: Failed to push version
+        if: ${{ failure() && steps.github-push.conclusion == 'failure' }}
+        run: echo Failed to update version or version already at latest
