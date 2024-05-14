@@ -4,6 +4,8 @@ name: Daily sync
 
 # Controls when the workflow will run
 on:
+  # Runs on a new commit/push to the repository
+  push:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   # Triggers the workflow daily
