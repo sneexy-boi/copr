@@ -1,7 +1,7 @@
 %global             source_name floorp
 %global             application_name floorp
 %global             full_name floorp
-%global             internal_name floorp
+%global             internal_name floorp-ablaze
 
 Name:               floorp
 Version:            11.12.2
@@ -11,9 +11,9 @@ Summary:            Floorp Web browser
 License:            MPLv1.1 or GPLv2+ or LGPLv2+
 URL:                https://github.com/Floorp-Projects/Floorp
 Source0:            https://github.com/Floorp-Projects/Floorp/releases/download/v%{version}/floorp-%{version}.linux-x86_64.tar.bz2
-Source1:            %{internal_name}.desktop
+Source1:            %{application_name}.desktop
 Source2:            policies.json
-Source3:            %{internal_name}
+Source3:            %{application_name}
 
 ExclusiveArch:      x86_64
 
