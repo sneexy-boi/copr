@@ -26,14 +26,14 @@ jobs:
 
       - name: Run Git Configurations
         run: |
-          git config --local user.name "Not GitHub"
-          git config --locubuntu-latestal user.email "the-rizzler@gyatt.com"
+          git config --local user.name "GayBot"
+          git config --local user.email "the-rizzler@gyatt.com"
 
       - name: Execute version update
         run: |
           FLOORP_VER_ORIGINAL=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases | jq -r 'first(.[].tag_name | select(test("^v[0-9]")))')
           FLOORP_VER=$(echo $FLOORP_VER_ORIGINAL | cut -d 'v' -f 2)
-          sed -i '0,/Version:.*/s//Version:            '$FLOORP_VER'/' floorp.spec
+          sed -i '0,/Version:.*/s//Version:            '$FLOORP_VER'/' /workspace/sneexy/copr/floorp/floorp.spec
 
       - name: Push version to Github
         id: github-push
