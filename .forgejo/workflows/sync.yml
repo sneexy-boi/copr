@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: docker
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,7 +25,7 @@ jobs:
       - name: Run Git Configurations
         run: |
           git config --local user.name "Not GitHub"
-          git config --local user.email "the-rizzler@gyatt.com"
+          git config --locubuntu-latestal user.email "the-rizzler@gyatt.com"
 
       - name: Execute version update
         run: |
