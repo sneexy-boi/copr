@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Daily sync
+name: Floorp Daily Sync
 
 # Controls when the workflow will run
 on:
@@ -39,5 +37,5 @@ jobs:
         id: github-push
         run: |
           git add .
-          git diff-index --quiet HEAD || git commit -m "chore: Sync Floorp version"
+          git diff-index --quiet HEAD || git commit -m "chore(floorp): Sync Floorp version"
           git push

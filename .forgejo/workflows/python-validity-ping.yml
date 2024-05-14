@@ -1,0 +1,28 @@
+name: python-validity Weekly Build
+
+# Controls when the workflow will run
+on:
+  # Runs on a new commit/push to the repository
+  push:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Triggers the workflow weekly
+  schedule:
+    - cron: "0 0 * * 6"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: docker
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Trigger python-validity packages rebuild on Copr 
+        run: |
+          echo 'wakey wakey eggs and bakey!'
+          curl -X POST ${{ secrets.PYTHON_VALIDITY_WEBHOOK }}
+          curl -X POST ${{ secrets.OPEN_FPRINTD_WEBHOOK }}
+          curl -X POST ${{ secrets.FPRINTD_CLIENTS_WEBHOOK }}
+          echo 'Done.'
