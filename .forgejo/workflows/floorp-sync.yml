@@ -33,6 +33,7 @@ jobs:
       - name: Push updated version to the repository
         id: github-push
         run: |
+          git config pull.rebase true
           git pull
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(floorp): Sync Floorp version"
