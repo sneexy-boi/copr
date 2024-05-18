@@ -14,7 +14,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Gayify the commit
         run: |
@@ -30,6 +30,7 @@ jobs:
       - name: Push updated version to the repository
         id: github-push
         run: |
+          git pull
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(floorp): Sync Floorp version"
           git push
