@@ -1,7 +1,7 @@
 %global             source_name floorp
 %global             application_name floorp
 %global             full_name floorp
-%global             internal_name floorp-ablaze
+%global             internal_name floorp
 
 Name:               floorp
 Version:            11.13.0
