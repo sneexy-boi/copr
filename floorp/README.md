@@ -9,8 +9,6 @@ Automatically (hopefully) updated spec files for the [Floorp](https://floorp.app
 
 If you have any issues with the package itself, feel free to report but I may not be able to fix it as this is my first time managing a package such as this. Feel free to contribute if you'd like if you can fix any issues yourself!
 
-This package *may or may not* be broken for users on Immutable/Atomic Fedora, although this issue may only be related to users using custom [Universal Blue](https://universal-blue.org/)/[BlueBuild](https://blue-build.org/) images. [You can see my fix here.](https://github.com/sernik-tech/member-images/blob/main/config/scripts/system-wuzetka.sh#L12-L16)
-
 ## ⚠️ Special Note
 This is just an RPM packaging for the said software and does not include any licenses of its own. The only additional file included is the `.desktop` file written based on the original executable from the Firefox Release Channel (default).
 
