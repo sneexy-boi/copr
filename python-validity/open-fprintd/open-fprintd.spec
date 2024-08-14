@@ -20,6 +20,7 @@ BuildRequires:  python3-setuptools
 BuildRequires:	systemd-rpm-macros
 
 Requires:       fprintd-clients
+Provides:       fprintd
 
 %description
 Replacement of package fprintd which allows you to have your own backend as a
