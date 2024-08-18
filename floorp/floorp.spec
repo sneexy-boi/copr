@@ -4,7 +4,7 @@
 %global             internal_name floorp
 
 Name:               floorp
-Version:            11.17.1
+Version:            11.17.3
 Release:            1%{?dist}
 Summary:            Floorp Web browser
 
