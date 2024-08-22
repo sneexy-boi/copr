@@ -2,6 +2,7 @@
 %global             application_name floorp
 %global             full_name floorp
 %global             internal_name floorp
+%global             debug_package %{nil}
 
 Name:               floorp
 Version:            11.17.5
