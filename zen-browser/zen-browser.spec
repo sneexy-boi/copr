@@ -1,7 +1,5 @@
-%global             source_name zen-browser
-%global             application_name zen
 %global             full_name zen-browser
-%global             internal_name zen-browser
+%global             application_name zen
 %global             debug_package %{nil}
 
 Name:               zen-browser
@@ -12,9 +10,9 @@ Summary:            Zen Browser
 License:            MPLv2.0
 URL:                https://github.com/zen-browser/desktop
 Source0:            https://github.com/zen-browser/desktop/releases/download/1.0.0-a.29/zen.linux-specific.tar.bz2
-Source1:            %{internal_name}.desktop
+Source1:            %{full_name}.desktop
 Source2:            policies.json
-Source3:            %{internal_name}
+Source3:            %{full_name}
 
 ExclusiveArch:      x86_64
 
@@ -35,7 +33,7 @@ Bugs related to this package should be reported at this Git project:
 <https://git.gay/sneexy/copr/>
 
 %prep
-%setup -q -n %{source_name}
+%setup -q -n %{full_name}
 
 %install
 %__rm -rf %{buildroot}
@@ -60,13 +58,13 @@ Bugs related to this package should be reported at this Git project:
 gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 
 %files
-%{_datadir}/applications/%{internal_name}.desktop
+%{_datadir}/applications/%{application_name}.desktop
 %{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/48x48/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/32x32/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/16x16/apps/%{full_name}.png
-%{_bindir}/%{internal_name}
+%{_bindir}/%{application_name}
 /opt/%{application_name}
 
 %changelog
