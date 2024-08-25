@@ -33,7 +33,7 @@ Bugs related to this package should be reported at this Git project:
 <https://git.gay/sneexy/copr/>
 
 %prep
-%setup -q -n %{full_name}
+%setup -q -n %{application_name}
 
 %install
 %__rm -rf %{buildroot}
