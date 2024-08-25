@@ -1,0 +1,39 @@
+# Controls when the workflow will run
+on:
+  # Run on commit
+  push:
+  # Triggers the workflow daily
+  schedule:
+    - cron: '0 0 * * *'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: docker
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+        with:
+          ref: 'main'
+
+      - name: Gayify the commit
+        run: |
+          git config --local user.name "GayBot"
+          git config --local user.email "the-rizzler@gyatt.com"
+
+      - name: Update zen-browser.spec
+        run: |
+          ZEN_VER=$(curl -s https://api.github.com/repos/zen-browser/desktop/releases | jq -r 'first(.[].tag_name | select(test("^[0-9]")))')
+          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER'/' /workspace/sneexy/copr/zen-browser/zen-browser.spec
+
+      - name: Push updated version to the repository
+        id: github-push
+        run: |
+          git config pull.rebase true
+          git add .
+          git diff-index --quiet HEAD || git commit -m "chore(zen-browser): Sync Zen version"
+          git push
