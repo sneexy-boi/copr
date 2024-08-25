@@ -1,5 +1,5 @@
 %global             source_name zen-browser
-%global             application_name zen-browser
+%global             application_name zen
 %global             full_name zen-browser
 %global             internal_name zen-browser
 %global             debug_package %{nil}
