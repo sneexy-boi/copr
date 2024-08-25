@@ -58,13 +58,13 @@ Bugs related to this package should be reported at this Git project:
 gtk-update-icon-cache -f -t %{_datadir}/icons/hicolor
 
 %files
-%{_datadir}/applications/%{application_name}.desktop
+%{_datadir}/applications/%{full_name}.desktop
 %{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/48x48/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/32x32/apps/%{full_name}.png
 %{_datadir}/icons/hicolor/16x16/apps/%{full_name}.png
-%{_bindir}/%{application_name}
+%{_bindir}/%{full_name}
 /opt/%{application_name}
 
 %changelog
