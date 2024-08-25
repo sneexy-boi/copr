@@ -26,9 +26,13 @@ jobs:
           git config --local user.email "the-rizzler@gyatt.com"
 
       - name: Update zen-browser.spec
+        # Copr doesn't like using dashes for the version, so we have to manually change it to something it likes but keep it the same for
+        # the source repo.
         run: |
           ZEN_VER=$(curl -s https://api.github.com/repos/zen-browser/desktop/releases | jq -r 'first(.[].tag_name | select(test("^[0-9]")))')
-          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER'/' /workspace/sneexy/copr/zen-browser/zen-browser.spec
+          ZEN_VER_SPEC=$(echo $ZEN_VER | sed 's@-@.@g')
+          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_SPEC'/' /workspace/sneexy/copr/zen-browser/zen-browser.spec
+          sed -i 's@https://github.com/zen-browser/desktop/releases/download/.*@https://github.com/zen-browser/desktop/releases/download/'$ZEN_VER'/zen.linux-specific.tar.bz2@g' /workspace/sneexy/copr/zen-browser/zen-browser.spec
 
       - name: Push updated version to the repository
         id: github-push
