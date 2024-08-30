@@ -40,6 +40,7 @@ jobs:
         id: github-push
         run: |
           git config pull.rebase true
+          git pull
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(zen-browser): Sync Zen version"
           git push

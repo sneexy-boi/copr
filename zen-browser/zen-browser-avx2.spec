@@ -2,7 +2,7 @@
 %global             application_name zen
 %global             debug_package %{nil}
 
-Name:               zen-browser
+Name:               zen-browser-avx2
 Version:            1.0.0.a.32
 Release:            1%{?dist}
 Summary:            Zen Browser
