@@ -15,4 +15,4 @@ fi
 
 export MOZ_APP_LAUNCHER="$0"
 
-exec /opt/zen/zen "$@"
+exec /opt/zen/zen-bin "$@"
