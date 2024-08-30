@@ -3,8 +3,9 @@ on:
   # Run on commit
   push:
   # Triggers the workflow daily
+  # Delayed slightly to not conflict with floorp sync workflow
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '1 0 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,7 +41,6 @@ jobs:
         id: github-push
         run: |
           git config pull.rebase true
-          git pull
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(zen-browser): Sync Zen version"
           git push
