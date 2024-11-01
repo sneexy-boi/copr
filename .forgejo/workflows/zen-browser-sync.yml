@@ -3,9 +3,9 @@ on:
   # Run on commit
   push:
   # Triggers the workflow daily
-  # Delayed slightly to not conflict with floorp sync workflow
+  # Zen tends to update a lot, so we run this every 20 minutes
   schedule:
-    - cron: '1 0 * * *'
+    - cron: '*/20 * * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
