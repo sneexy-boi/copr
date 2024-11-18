@@ -30,7 +30,7 @@ jobs:
           pwd
           FLOORP_VER_ORIGINAL=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases | jq -r 'first(.[].tag_name | select(test("^v[0-9]")))')
           FLOORP_VER=$(echo $FLOORP_VER_ORIGINAL | cut -d 'v' -f 2)
-          sed -i '0,/Version:.*/s//Version:            '$FLOORP_VER'/' /github/workspace/floorp/floorp.spec
+          sed -i '0,/Version:.*/s//Version:            '$FLOORP_VER'/' /home/runner/work/copr/copr/floorp/floorp.spec
 
       - name: Push updated version to the repository
         id: github-push
