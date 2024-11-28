@@ -14,7 +14,7 @@ Source1:            %{full_name}.desktop
 Source2:            policies.json
 Source3:            %{full_name}
 
-BuildArch:          noarch
+ExclusiveArch:      aarch64
 
 Recommends:         (plasma-browser-integration if plasma-workspace)
 Recommends:         (gnome-browser-connector if gnome-shell)
