@@ -14,13 +14,14 @@ Source1:            %{full_name}.desktop
 Source2:            policies.json
 Source3:            %{full_name}
 
-ExclusiveArch:      x86_64
+BuildArch:          noarch
 
 Recommends:         (plasma-browser-integration if plasma-workspace)
 Recommends:         (gnome-browser-connector if gnome-shell)
 
 Requires(post):     gtk-update-icon-cache
 Conflicts:          zen-browser
+Conflicts:          zen-browser-aarch64
 
 %description
 This is a package of the Zen web browser. Zen Browser is a fork of Firefox
