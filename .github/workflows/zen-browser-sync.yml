@@ -3,14 +3,10 @@ on:
   # Run on commit
   push:
   # Triggers the workflow daily
-  # Zen tends to update a lot, so we run this every 30 minutes
+  # Zen tends to update a lot, so we run this every 10 minutes
   schedule:
-<<<<<<< HEAD:.github/workflows/zen-browser-sync.yml
     - cron: '*/10 * * * *'
   workflow_dispatch:
-=======
-    - cron: '*/30 * * * *'
->>>>>>> 1ef712a (chore(zen-browser): modify cronjob to run every 30 minutes):.forgejo/workflows/zen-browser-sync.yml
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
