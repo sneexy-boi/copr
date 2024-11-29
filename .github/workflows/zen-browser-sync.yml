@@ -24,8 +24,8 @@ jobs:
 
       - name: Gayify the commit
         run: |
-          git config --local user.name "GayBot"
-          git config --local user.email "the-rizzler@gyatt.com"
+          git config --local user.name "Updater"
+          git config --local user.email "synth@synth.download"
 
       - name: Update zen-browser.spec
         # Copr doesn't like using dashes for the version, so we have to manually change it to something it likes but keep it the same for
