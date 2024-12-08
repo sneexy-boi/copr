@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
-Name=Zen Browser
+Name=Zen Browser (Twilight)
 GenericName=Web Browser
 GenericName[ca]=Navegador web
 GenericName[cs]=Webový prohlížeč
@@ -23,9 +23,9 @@ GenericName[pt_BR]=Navegador Web
 GenericName[sk]=Internetový prehliadač
 GenericName[sv]=Webbläsare
 Comment=Experience tranquillity while browsing the web without people tracking you!
-Exec=zen-browser %u
-StartupWMClass=zen-beta
-Icon=zen-browser
+Exec=zen-twilight %u
+StartupWMClass=zen-twilight
+Icon=zen-twilight
 Terminal=false
 Type=Application
 Categories=Network;WebBrowser;
