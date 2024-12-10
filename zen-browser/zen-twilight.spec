@@ -35,8 +35,7 @@ Bugs related to this package should be reported at this Git project:
 <https://github.com/sneexy-boi/copr>
 
 %prep
-%setup -q -n zen
-mv zen %{application_name}
+%setup -q -n %{application_name}
 
 %install
 %__rm -rf %{buildroot}
