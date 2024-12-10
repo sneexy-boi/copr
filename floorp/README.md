@@ -5,7 +5,7 @@
 [![Latest Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=builds.latest.source_package.version&url=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fapi_3%2Fpackage%3Fownername%3Dsneexy%26projectname%3Dfloorp%26packagename%3Dfloorp%26with_latest_build%3DTrue&style=flat-square&logoColor=blue)](https://copr.fedorainfracloud.org/coprs/sneexy/floorp/package/floorp/)
 [![Copr build status](https://copr.fedorainfracloud.org/coprs/sneexy/floorp/package/floorp/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/sneexy/floorp/package/floorp/)
 
-Automatically (hopefully) updated spec files for the [Floorp](https://floorp.app/) browser packaged for Fedora. Based on the works from [the4runner](https://github.com/the4runner/firefox-dev) and [LovecraftianGodsKiller](https://github.com/LovecraftianGodsKiller/floorp). The Copr repo for this package [can be located here](https://copr.fedorainfracloud.org/coprs/sneexy/floorp).
+Automatically up-to-date spec files for the [Floorp](https://floorp.app/) browser packaged for Fedora. Based on the works from [the4runner](https://github.com/the4runner/firefox-dev) and [LovecraftianGodsKiller](https://github.com/LovecraftianGodsKiller/floorp). The Copr repo for this package [can be located here](https://copr.fedorainfracloud.org/coprs/sneexy/floorp).
 
 If you have any issues with the package itself, feel free to report but I may not be able to fix it as this is my first time managing a package such as this. Feel free to contribute if you'd like if you can fix any issues yourself!
 

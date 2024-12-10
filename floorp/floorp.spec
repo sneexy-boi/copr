@@ -32,7 +32,7 @@ Bugs related to Floorp should be reported directly to the Floorp GitHub repo:
 <https://https://github.com/Floorp-Projects/Floorp/issues/>
 
 Bugs related to this package should be reported at this Git project:
-<https://git.gay/sneexy/copr/>
+<https://github.com/sneexy-boi/copr>
 
 %prep
 %setup -q -n %{source_name}

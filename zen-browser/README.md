@@ -5,7 +5,7 @@
 [![Latest Version](https://img.shields.io/badge/dynamic/json?color=blue&label=Version&query=builds.latest.source_package.version&url=https%3A%2F%2Fcopr.fedorainfracloud.org%2Fapi_3%2Fpackage%3Fownername%3Dsneexy%26projectname%3Dzen-browser%26packagename%3Dzen-browser%26with_latest_build%3DTrue&style=flat-square&logoColor=blue)](https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/package/zen-browser/)
 [![Copr build status](https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/package/zen-browser/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser/package/zen-browser/)
 
-Automatically (hopefully) updated spec files for the [Zen Browser](https://zen-browser.app/) packaged for Fedora. Forked from my [Floorp](https://copr.fedorainfracloud.org/coprs/sneexy/floorp) package, based on the works from [the4runner](https://github.com/the4runner/firefox-dev) and [LovecraftianGodsKiller](https://github.com/LovecraftianGodsKiller/floorp). The Copr repo for this package [can be located here](https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser).
+Automatically up-to-date spec files for the [Zen Browser](https://zen-browser.app/) packaged for Fedora. Forked from my [Floorp](https://copr.fedorainfracloud.org/coprs/sneexy/floorp) package, based on the works from [the4runner](https://github.com/the4runner/firefox-dev) and [LovecraftianGodsKiller](https://github.com/LovecraftianGodsKiller/floorp). The Copr repo for this package [can be located here](https://copr.fedorainfracloud.org/coprs/sneexy/zen-browser).
 
 If you have any issues with the package itself, feel free to report but I may not be able to fix it as this is my first time managing a package such as this. Feel free to contribute if you'd like if you can fix any issues yourself!
 
@@ -21,7 +21,7 @@ Bugs related to Zen should be reported directly to the Zen Browser GitHub repo:
 <https://github.com/zen-browser/desktop/issues>
 
 Bugs related to this package should be reported at this Git project:
-<https://git.gay/sneexy/copr/>
+<https://github.com/sneexy-boi/copr>
 
 ## Installation Instructions
 1. Enable `sneexy/zen-browser` [Copr](https://copr.fedorainfracloud.org/) repository according to your package manager.
