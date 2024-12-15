@@ -3,13 +3,13 @@
 %global             debug_package %{nil}
 
 Name:               zen-browser-avx2
-Version:            1.0.2.b.1
+Version:            1.0.2.b.2
 Release:            1%{?dist}
 Summary:            Zen Browser
 
 License:            MPLv2.0
 URL:                https://github.com/zen-browser/desktop
-Source0:            https://github.com/zen-browser/desktop/releases/download/1.0.2-b.1/zen.linux-specific.tar.bz2
+Source0:            https://github.com/zen-browser/desktop/releases/download/1.0.2-b.2/zen.linux-specific.tar.bz2
 Source1:            %{full_name}.desktop
 Source2:            policies.json
 Source3:            %{full_name}
