@@ -16,6 +16,8 @@ Source3:            %{full_name}
 
 ExclusiveArch:      x86_64
 
+Provides: deprecated()
+
 Recommends:         (plasma-browser-integration if plasma-workspace)
 Recommends:         (gnome-browser-connector if gnome-shell)
 
