@@ -38,6 +38,19 @@ jobs:
           sed -i 's@https://github.com/zen-browser/desktop/releases/download/.*@https://github.com/zen-browser/desktop/releases/download/'$ZEN_VER'/zen.linux-x86_64.tar.bz2@g' /home/runner/work/copr/copr/zen-browser/zen-browser.spec
           sed -i 's@https://github.com/zen-browser/desktop/releases/download/.*@https://github.com/zen-browser/desktop/releases/download/'$ZEN_VER'/zen.linux-aarch64.tar.bz2@g' /home/runner/work/copr/copr/zen-browser/zen-browser-aarch64.spec
 
+      - name: update-zen-browser-twilight-spec
+        id: update_twilight
+        run: |
+          ZEN_VER_TWILIGHT=$(curl -s https://api.github.com/repos/zen-browser/desktop/releases | jq -r '[.[] | select(.prerelease == true)][0].id')
+          OLD_VER=$(grep '^Version:' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec | awk '{print $2}')
+          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec
+          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight-aarch64.spec
+          if [ "$ZEN_VER_TWILIGHT" != "$OLD_VER" ]; then
+            echo "::set-output name=twilight_version_changed::true"
+          else
+            echo "::set-output name=twilight_version_changed::false"
+          fi
+
       - name: Push updated version to the repository
         id: github-push
         run: |

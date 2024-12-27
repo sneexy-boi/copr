@@ -20,8 +20,7 @@ Recommends:         (plasma-browser-integration if plasma-workspace)
 Recommends:         (gnome-browser-connector if gnome-shell)
 
 Requires(post):     gtk-update-icon-cache
-Conflicts:          zen-browser-avx2
-Conflicts:          zen-browser-aarch64
+Conflicts:          zen-browser-avx2, zen-browser-aarch64
 
 Provides: zen-browser-avx2 = %{version}-%{release}
 Obsoletes: zen-browser-avx2 < 1.0.2.b.3-3
