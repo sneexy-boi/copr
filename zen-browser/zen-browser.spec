@@ -23,8 +23,8 @@ Requires(post):     gtk-update-icon-cache
 Conflicts:          zen-browser-avx2
 Conflicts:          zen-browser-aarch64
 
-Provides: zen-browser-avx2 = $provEVR
-Obsoletes: zen-browser-avx2 < $obsEVR
+Provides: zen-browser-avx2 = %{version}-%{release}
+Obsoletes: zen-browser-avx2 < 1.0.2.b.3-3
 
 %description
 This is a package of the Zen web browser. Zen Browser is a fork of Firefox
