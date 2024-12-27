@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Version=1.0
-Name=Zen Browser (Twilight)
+Name=Zen Browser
 GenericName=Web Browser
 GenericName[ca]=Navegador web
 GenericName[cs]=Webový prohlížeč
@@ -140,7 +140,7 @@ Name[wo]=Palanteer bu bees
 Name[xh]=Ifestile entsha
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=zen-browser --new-window %u
+Exec=zen-twilight --new-window %u
 
 [Desktop Action new-private-window]
 Name=Open a New Private Window
@@ -248,11 +248,11 @@ Name[wo]=Panlanteeru biir bu bees
 Name[xh]=Ifestile yangasese entsha
 Name[zh_CN]=新建隐私浏览窗口
 Name[zh_TW]=新增隱私視窗
-Exec=zen-browser --private-window %u
+Exec=zen-twilight --private-window %u
 
 [Desktop Action profile-manager-window]
 Name=Open the Profile Manager
 Name[cs]=Správa profilů
 Name[de]=Profilverwaltung öffnen
 Name[fr]=Ouvrir le gestionnaire de profils
-Exec=zen-browser --ProfileManager
+Exec=zen-twilight --ProfileManager
