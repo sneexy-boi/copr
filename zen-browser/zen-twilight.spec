@@ -3,7 +3,7 @@
 %global             debug_package %{nil}
 
 Name:               zen-twilight
-Version:            192534304
+Version:            192598584
 Release:            1%{?dist}
 Summary:            Zen Browser (Twilight)
 
