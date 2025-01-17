@@ -22,7 +22,7 @@ jobs:
         with:
           ref: 'main'
 
-      - name: Gayify the commit
+      - name: Set commit author
         run: |
           git config --local user.name "Updater"
           git config --local user.email "synth@synth.download"
