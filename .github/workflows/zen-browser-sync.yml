@@ -22,6 +22,9 @@ jobs:
         with:
           ref: 'main'
 
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
       - name: Set commit author
         run: |
           git config --local user.name "Updater"
@@ -31,17 +34,18 @@ jobs:
         # Copr doesn't like using dashes for the version, so we have to manually change it to something it likes but keep it the same for
         # the source repo.
         run: |
-          ZEN_VER=$(curl -s https://api.github.com/repos/zen-browser/desktop/releases | jq -r 'first(.[].tag_name | select(test("^[0-9]")))')
+          # Fetch the latest release version from the Zen Browser update server
+          ZEN_VER=$(curl -s "https://updates.zen-browser.app/updates/browser/Linux_x86_64-gcc3/release/update.xml" | xmllint --xpath 'string(//update/@displayVersion)' -)
           ZEN_VER_SPEC=$(echo $ZEN_VER | sed 's@-@.@g')
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_SPEC'/' /home/runner/work/copr/copr/zen-browser/zen-browser.spec
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_SPEC'/' /home/runner/work/copr/copr/zen-browser/zen-browser-aarch64.spec
           sed -i 's@https://github.com/zen-browser/desktop/releases/download/.*@https://github.com/zen-browser/desktop/releases/download/'$ZEN_VER'/zen.linux-x86_64.tar.xz@g' /home/runner/work/copr/copr/zen-browser/zen-browser.spec
           sed -i 's@https://github.com/zen-browser/desktop/releases/download/.*@https://github.com/zen-browser/desktop/releases/download/'$ZEN_VER'/zen.linux-aarch64.tar.xz@g' /home/runner/work/copr/copr/zen-browser/zen-browser-aarch64.spec
 
-      - name: update-zen-browser-twilight-spec
+      - name: Update zen-twilight.spec
         id: update_twilight
         run: |
-          ZEN_VER_TWILIGHT=$(curl -s https://api.github.com/repos/zen-browser/desktop/releases | jq -r '[.[] | select(.prerelease == true)][0].id')
+          ZEN_VER_TWILIGHT=$(curl -s "https://updates.zen-browser.app/updates/browser/Linux_x86_64-gcc3/twilight/update.xml" | xmllint --xpath 'string(//update/@displayVersion)' -)
           OLD_VER=$(grep '^Version:' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec | awk '{print $2}')
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight-aarch64.spec
