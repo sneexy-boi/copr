@@ -46,9 +46,10 @@ jobs:
         id: update_twilight
         run: |
           ZEN_VER_TWILIGHT=$(curl -s "https://updates.zen-browser.app/updates/browser/Linux_x86_64-gcc3/twilight/update.xml" | xmllint --xpath 'string(//update/@displayVersion)' -)
+          ZEN_ID_TWILIGHT=$(curl -s "https://updates.zen-browser.app/updates/browser/Linux_x86_64-gcc3/twilight/update.xml" | xmllint --xpath 'string(//update/@buildID)' -)
           OLD_VER=$(grep '^Version:' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec | awk '{print $2}')
-          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec
-          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight-aarch64.spec
+          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'.'$ZEN_ID_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec
+          sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'.'$ZEN_ID_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight-aarch64.spec
           if [ "$ZEN_VER_TWILIGHT" != "$OLD_VER" ]; then
             echo "::set-output name=twilight_version_changed::true"
           else

@@ -9,6 +9,7 @@ Summary:            Zen Browser
 
 License:            MPLv2.0
 URL:                https://github.com/zen-browser/desktop
+
 Source0:            https://github.com/zen-browser/desktop/releases/download/1.11.1b/zen.linux-x86_64.tar.xz
 Source1:            %{full_name}.desktop
 Source2:            policies.json
