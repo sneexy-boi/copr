@@ -1,5 +1,6 @@
 %define openfprintdlibdir %{_exec_prefix}/lib/open-fprintd
 %define _unitdir %{_exec_prefix}/lib/systemd/system
+%define altversion 0.6
 
 Name:           open-fprintd
 Version:        0.7
@@ -54,7 +55,7 @@ install -m 0644 %{SOURCE1} %{buildroot}/%{_unitdir}/
 %doc README.md
 %license COPYING
 %{python3_sitelib}/openfprintd/
-%{python3_sitelib}/open_fprintd-%{version}-py*.egg-info/
+%{python3_sitelib}/open_fprintd-%{altversion}-py*.egg-info/
 %{openfprintdlibdir}/open-fprintd
 %{openfprintdlibdir}/suspend.py
 %{openfprintdlibdir}/resume.py

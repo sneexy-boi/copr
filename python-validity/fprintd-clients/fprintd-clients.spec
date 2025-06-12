@@ -72,7 +72,7 @@ fingerprint readers access.
 %meson_install
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/fprint
 
-rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_fprintd.{a,la,so.*}
+#rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_fprintd.{a,la,so.*}
 
 # Remove daemon files:
 rm -f $RPM_BUILD_ROOT/%{_libexecdir}/fprintd
