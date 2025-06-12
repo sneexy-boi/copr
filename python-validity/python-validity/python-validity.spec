@@ -6,7 +6,7 @@
 %define _unitdir %{_exec_prefix}/lib/systemd/system
 
 Name:           python-%{pypi_name}
-Version:        0.14
+Version:        0.15
 Release:        4%{?dist}
 Summary:        Validity fingerprint sensor driver
 
@@ -119,6 +119,9 @@ fi
 
 
 %changelog
+* Thur Jun 12 2025 Ruben R. <sneexy@amogus.cloud> - 0.15
+- Bump to python-validity 0.15
+
 * Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 0.14.4
 - Edit specs to grab sources remotely
 
