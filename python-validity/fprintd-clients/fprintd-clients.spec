@@ -97,7 +97,7 @@ fi
 
 %files pam
 %doc pam/README
-/%{_lib}/security/pam_fprintd.so
+#/%{_lib}/security/pam_fprintd.so
 %{_mandir}/man8/pam_fprintd.8.gz
 
 %files devel
@@ -106,7 +106,7 @@ fi
 %{_datadir}/dbus-1/interfaces/net.reactivated.Fprint.Manager.xml
 
 %changelog
-* Thur Jun 12 2025 Ruben R. <sneexy@amogus.cloud> - 1.94.5-1
+* Thu Jun 12 2025 Ruben R. <sneexy@amogus.cloud> - 1.94.5-1
 - Bump to fprintd-clients v1.94.5
 
 * Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 1.94.2-3
