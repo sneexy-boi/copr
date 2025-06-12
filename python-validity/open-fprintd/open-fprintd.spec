@@ -2,13 +2,13 @@
 %define _unitdir %{_exec_prefix}/lib/systemd/system
 
 Name:           open-fprintd
-Version:        0.6
-Release:        8%{?dist}
+Version:        0.7
+Release:        1%{?dist}
 Summary:        Replacement of package fprintd for standalone backend services
 
 License:        GPLv2
 URL:            https://github.com/uunicorn/%{name}
-Source0:        https://github.com/uunicorn/%{name}/archive/refs/tags/0.6.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/uunicorn/%{name}/archive/refs/tags/0.7.tar.gz#/%{name}-%{version}.tar.gz
 # restart open-fprint after resume
 Source1:        open-fprintd-restart-after-resume.service
 
@@ -63,6 +63,9 @@ install -m 0644 %{SOURCE1} %{buildroot}/%{_unitdir}/
 %{_datadir}/dbus-1/system.d/net.reactivated.Fprint.conf
 
 %changelog
+* Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 0.7-1
+- Bump to open-fprintd 0.7
+
 * Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 0.12-8
 - Edit specs to grab sources remotely
 
