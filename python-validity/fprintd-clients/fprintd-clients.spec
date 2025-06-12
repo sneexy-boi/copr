@@ -97,7 +97,7 @@ fi
 
 %files pam
 %doc pam/README
-/%{_lib}/security/pam_fprintd.so
+/usr/lib64/security/pam_fprintd.so
 %{_mandir}/man8/pam_fprintd.8.gz
 
 %files devel
