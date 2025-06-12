@@ -119,10 +119,10 @@ fi
 
 
 %changelog
-* Thur Jun 12 2025 Ruben R. <sneexy@amogus.cloud> - 0.15
+* Thur Jun 12 2025 Ruben R. <sneexy@amogus.cloud> - 0.15-1
 - Bump to python-validity 0.15
 
-* Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 0.14.4
+* Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 0.14-4
 - Edit specs to grab sources remotely
 
 * Wed Jan 31 2024 Ruben R. <sneexy@amogus.cloud> - 0.14-3

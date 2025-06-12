@@ -1,8 +1,8 @@
 %define orig_name fprintd
 
 Name:		fprintd-clients
-Version:	1.94.2
-Release:	3%{?dist}
+Version:	1.94.5
+Release:	1%{?dist}
 Epoch:		1
 Summary:	Clients for D-Bus service for Fingerprint reader access
 
@@ -106,6 +106,9 @@ fi
 %{_datadir}/dbus-1/interfaces/net.reactivated.Fprint.Manager.xml
 
 %changelog
+* Thur Jun 12 2025 Ruben R. <sneexy@amogus.cloud> - 1.94.5-1
+- Bump to fprintd-clients v1.94.5
+
 * Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 1.94.2-3
 - Edit specs to grab sources remotely
 

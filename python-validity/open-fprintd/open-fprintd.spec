@@ -63,7 +63,7 @@ install -m 0644 %{SOURCE1} %{buildroot}/%{_unitdir}/
 %{_datadir}/dbus-1/system.d/net.reactivated.Fprint.conf
 
 %changelog
-* Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 0.7-1
+* Thur Jun 12 2025 Ruben R. <sneexy@amogus.cloud> - 0.7-1
 - Bump to open-fprintd 0.7
 
 * Mon Mar 18 2024 Ruben R. <sneexy@amogus.cloud> - 0.12-8
