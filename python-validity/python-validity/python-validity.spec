@@ -7,7 +7,7 @@
 
 Name:           python-%{pypi_name}
 Version:        0.15
-Release:        4%{?dist}
+Release:        1%{?dist}
 Summary:        Validity fingerprint sensor driver
 
 License:        MIT
