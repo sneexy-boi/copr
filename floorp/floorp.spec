@@ -11,12 +11,15 @@ Summary:            Floorp Web browser
 
 License:            MPLv1.1 or GPLv2+ or LGPLv2+
 URL:                https://github.com/Floorp-Projects/Floorp
+
 Source0:            https://github.com/Floorp-Projects/Floorp/releases/download/v%{version}/floorp-linux-amd64.tar.xz
 Source1:            %{internal_name}.desktop
 Source2:            policies.json
 Source3:            %{internal_name}
 
 ExclusiveArch:      x86_64
+
+BuildRequires:      patchelf
 
 Recommends:         (plasma-browser-integration if plasma-workspace)
 Recommends:         (gnome-browser-connector if gnome-shell)
@@ -49,6 +52,8 @@ Bugs related to this package should be reported at this Git project:
 %__install -D -m 0444 %{SOURCE2} -t %{buildroot}/opt/%{application_name}/distribution
 
 %__install -D -m 0755 %{SOURCE3} -t %{buildroot}%{_bindir}
+
+patchelf --set-rpath '$ORIGIN' %{buildroot}/opt/%{application_name}/libonnxruntime.so
 
 %__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default128.png %{buildroot}%{_datadir}/icons/hicolor/128x128/apps/%{full_name}.png
 %__ln_s ../../../../../../opt/%{application_name}/browser/chrome/icons/default/default64.png %{buildroot}%{_datadir}/icons/hicolor/64x64/apps/%{full_name}.png
