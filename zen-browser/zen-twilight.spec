@@ -17,6 +17,8 @@ Source3:            %{full_name}
 
 ExclusiveArch:      x86_64
 
+BuildRequires:      patchelf
+
 Recommends:         (plasma-browser-integration if plasma-workspace)
 Recommends:         (gnome-browser-connector if gnome-shell)
 
