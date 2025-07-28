@@ -27,11 +27,18 @@ jobs:
           git config --local user.email "synth@synth.download"
 
       - name: Update floorp.spec
+      - if: update-floorp
         run: |
           pwd
-          FLOORP_VER_ORIGINAL=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases | jq -r 'first(.[].tag_name | select(test("^v[0-9]")))')
+          FLOORP_VER_ORIGINAL=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases/latest | jq -r '.tag_name')
           FLOORP_VER=$(echo $FLOORP_VER_ORIGINAL | cut -d 'v' -f 2)
+          OLD_VER=$(grep '^Version:' /home/runner/work/copr/copr/floorp/floorp.spec | awk '{print $2}')
           sed -i '0,/Version:.*/s//Version:            '$FLOORP_VER'/' /home/runner/work/copr/copr/floorp/floorp.spec
+          if [ "$FLOORP_VER" != "$OLD_VER" ]; then
+            echo "version_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "version_changed=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Push updated version to the repository
         id: github-push
@@ -40,3 +47,8 @@ jobs:
           git add .
           git diff-index --quiet HEAD || git commit -m "chore(floorp): Sync Floorp version"
           git push
+
+      - name: Trigger Floorp COPR build
+        if: steps.update-zen.outputs.version_changed == 'true'
+        run: |
+          curl -X POST ${{ secrets.COPR_FLOORP }}

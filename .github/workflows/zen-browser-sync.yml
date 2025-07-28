@@ -31,7 +31,7 @@ jobs:
           git config --local user.email "synth@synth.download"
 
       - name: Update zen-browser.spec
-        id: update_zen
+        id: update-zen
         # Copr doesn't like using dashes for the version, so we have to manually change it to something it likes but keep it the same for
         # the source repo.
         run: |
@@ -50,7 +50,7 @@ jobs:
           fi
 
       - name: Update zen-twilight.spec
-        id: update_twilight
+        id: update-twilight
         run: |
           ZEN_VER_TWILIGHT=$(curl -s "https://updates.zen-browser.app/updates/browser/Linux_x86_64-gcc3/twilight/update.xml" | xmllint --xpath 'string(//update/@displayVersion)' -)
           ZEN_ID_TWILIGHT=$(curl -s "https://updates.zen-browser.app/updates/browser/Linux_x86_64-gcc3/twilight/update.xml" | xmllint --xpath 'string(//update/@buildID)' -)
@@ -72,13 +72,13 @@ jobs:
           git push
 
       - name: Trigger Zen Browser COPR build
-        if: steps.update_zen.outputs.zen_version_changed == 'true'
+        if: steps.update-zen.outputs.zen_version_changed == 'true'
         run: |
           curl -X POST ${{ secrets.COPR_ZEN }}
           curl -X POST ${{ secrets.COPR_ZEN_ARM }}
 
       - name: Trigger Zen Twilight COPR build
-        if: steps.update_zen.outputs.zen_version_changed == 'true'
+        if: steps.update-zen.outputs.zen_version_changed == 'true'
         run: |
           curl -X POST ${{ secrets.COPR_ZEN_TWILIGHT }}
           curl -X POST ${{ secrets.COPR_ZEN_TWILIGHT_ARM }}
