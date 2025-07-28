@@ -27,7 +27,7 @@ jobs:
           git config --local user.email "synth@synth.download"
 
       - name: Update floorp.spec
-      - id: update-floorp
+        id: update-floorp
         run: |
           pwd
           FLOORP_VER_ORIGINAL=$(curl -s https://api.github.com/repos/Floorp-Projects/Floorp/releases/latest | jq -r '.tag_name')
