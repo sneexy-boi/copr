@@ -77,7 +77,7 @@ jobs:
           curl -X POST ${{ secrets.COPR_ZEN }}
           curl -X POST ${{ secrets.COPR_ZEN_ARM }}
 
-      - name: Trigger Zen Twilight Browser COPR build
+      - name: Trigger Zen Twilight COPR build
         if: steps.update_zen.outputs.zen_version_changed == 'true'
         run: |
           curl -X POST ${{ secrets.COPR_ZEN_TWILIGHT }}
