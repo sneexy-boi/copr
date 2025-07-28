@@ -68,7 +68,7 @@ jobs:
         run: |
           git config pull.rebase true
           git add .
-          git commit -m "chore(zen-browser): Sync Zen version"
+          git diff-index --quiet HEAD || git commit -m "chore(zen-browser): Sync Zen version"
           git push
 
       - name: Trigger Zen Browser COPR build
