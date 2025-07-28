@@ -31,16 +31,23 @@ jobs:
           git config --local user.email "synth@synth.download"
 
       - name: Update zen-browser.spec
+        id: update_zen
         # Copr doesn't like using dashes for the version, so we have to manually change it to something it likes but keep it the same for
         # the source repo.
         run: |
           # Fetch the latest release version from the Zen Browser update server
           ZEN_VER=$(curl -s "https://updates.zen-browser.app/updates/browser/Linux_x86_64-gcc3/release/update.xml" | xmllint --xpath 'string(//update/@displayVersion)' -)
           ZEN_VER_SPEC=$(echo $ZEN_VER | sed 's@-@.@g')
+          OLD_VER=$(grep '^Version:' /home/runner/work/copr/copr/zen-browser/zen-browser.spec | awk '{print $2}')
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_SPEC'/' /home/runner/work/copr/copr/zen-browser/zen-browser.spec
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_SPEC'/' /home/runner/work/copr/copr/zen-browser/zen-browser-aarch64.spec
           sed -i 's@https://github.com/zen-browser/desktop/releases/download/.*@https://github.com/zen-browser/desktop/releases/download/'$ZEN_VER'/zen.linux-x86_64.tar.xz@g' /home/runner/work/copr/copr/zen-browser/zen-browser.spec
           sed -i 's@https://github.com/zen-browser/desktop/releases/download/.*@https://github.com/zen-browser/desktop/releases/download/'$ZEN_VER'/zen.linux-aarch64.tar.xz@g' /home/runner/work/copr/copr/zen-browser/zen-browser-aarch64.spec
+          if [ "$ZEN_VER" != "$OLD_VER" ]; then
+            echo "zen_version_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "zen_version_changed=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Update zen-twilight.spec
         id: update_twilight
@@ -51,9 +58,9 @@ jobs:
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'.'$ZEN_ID_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight.spec
           sed -i '0,/Version:.*/s//Version:            '$ZEN_VER_TWILIGHT'.'$ZEN_ID_TWILIGHT'/' /home/runner/work/copr/copr/zen-browser/zen-twilight-aarch64.spec
           if [ "$ZEN_VER_TWILIGHT" != "$OLD_VER" ]; then
-            echo "::set-output name=twilight_version_changed::true"
+            echo "twilight_version_changed=true" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=twilight_version_changed::false"
+            echo "twilight_version_changed=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Push updated version to the repository
@@ -61,5 +68,17 @@ jobs:
         run: |
           git config pull.rebase true
           git add .
-          git diff-index --quiet HEAD || git commit -m "chore(zen-browser): Sync Zen version"
+          git commit -m "chore(zen-browser): Sync Zen version"
           git push
+
+      - name: Trigger Zen Browser COPR build
+        if: steps.update_zen.outputs.zen_version_changed == 'true'
+        run: |
+          curl -X POST ${{ secrets.COPR_ZEN }}
+          curl -X POST ${{ secrets.COPR_ZEN_ARM }}
+
+      - name: Trigger Zen Twilight Browser COPR build
+        if: steps.update_zen.outputs.zen_version_changed == 'true'
+        run: |
+          curl -X POST ${{ secrets.COPR_ZEN_TWILIGHT }}
+          curl -X POST ${{ secrets.COPR_ZEN_TWILIGHT_ARM }}
