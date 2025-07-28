@@ -49,6 +49,6 @@ jobs:
           git push
 
       - name: Trigger Floorp COPR build
-        if: steps.update-zen.outputs.version_changed == 'true'
+        if: steps.update-floorp.outputs.version_changed == 'true'
         run: |
           curl -X POST ${{ secrets.COPR_FLOORP }}
