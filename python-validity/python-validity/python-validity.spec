@@ -14,8 +14,8 @@ License:        MIT
 URL:            https://github.com/uunicorn/%{name}
 Source0:        https://github.com/uunicorn/%{name}/archive/refs/heads/master.tar.gz
 # restart python3-validity after resume
-Source1:        python3-validity-restart-after-resume.service
-Patch0:         python-validity-0.12-restart-always.patch
+Source1:        python-validity-restart-after-resume.service
+Patch0:         python-validity-restart-always.patch
 BuildArch:      noarch
 
 Requires:       selinux-policy >= %{selinux_policyver}

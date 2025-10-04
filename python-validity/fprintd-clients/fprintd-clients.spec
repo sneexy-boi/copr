@@ -18,7 +18,7 @@ BuildRequires:	gcc-c++
 BuildRequires:	git
 BuildRequires:	dbus-glib-devel
 BuildRequires:	pam-devel
-BuildRequires:	libfprint-devel >= 1.90.1
+BuildRequires:	libfprint-devel
 BuildRequires:	polkit-devel
 BuildRequires:	gtk-doc
 BuildRequires:	gettext
