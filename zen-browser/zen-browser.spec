@@ -3,14 +3,14 @@
 %global             debug_package %{nil}
 
 Name:               zen-browser
-Version:            1.17.11b
+Version:            1.17.10b
 Release:            1%{?dist}
 Summary:            Zen Browser
 
 License:            MPLv2.0
 URL:                https://github.com/zen-browser/desktop
 
-Source0:            https://github.com/zen-browser/desktop/releases/download/1.17.11b/zen.linux-x86_64.tar.xz
+Source0:            https://github.com/zen-browser/desktop/releases/download/1.17.10b/zen.linux-x86_64.tar.xz
 Source1:            %{full_name}.desktop
 Source2:            policies.json
 Source3:            %{full_name}
