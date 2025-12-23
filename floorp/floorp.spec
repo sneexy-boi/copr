@@ -12,7 +12,7 @@ Summary:            Floorp Web browser
 License:            MPLv1.1 or GPLv2+ or LGPLv2+
 URL:                https://github.com/Floorp-Projects/Floorp
 
-Source0:            https://github.com/Floorp-Projects/Floorp/releases/download/v%{version}/floorp-linux-amd64.tar.xz
+Source0:            https://github.com/Floorp-Projects/Floorp/releases/download/v%{version}/floorp-linux-x86_64.tar.xz
 Source1:            %{internal_name}.desktop
 Source2:            policies.json
 Source3:            %{internal_name}
